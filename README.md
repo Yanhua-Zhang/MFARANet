@@ -1,5 +1,5 @@
-# MultiTrans
-This repository includes the official project of our paper submitted to IEEE-EMBS International Conference on Biomedical and Health Informatics (BHI’23). Title: "MultiTrans: Multi-Branch Transformer Network for Medical Image Segmentation".
+# MFARANet
+This repository includes the official project of our paper submitted to IEEE Transactions on Image Processing. Title: "Multi-Level Feature Aggregation and Recursive Alignment Network for Real-Time Semantic Segmentation".
 
 ## Usage
 
@@ -9,21 +9,13 @@ This repository includes the official project of our paper submitted to IEEE-EMB
 
 - If you have any suggestions for improvement or encounter any issues while using this code, please feel free to contact me: zhangyanhua@mail.nwpu.edu.cn
 
-- When loading pre-trained Resnet models and the preprocessed dataset, we use absolute paths in our code. So you can put the pre-trained models and the dataset under any path. Then, please modify their file paths in the code. The position that needs to be modified in the code can be easily found through the error message : ).
-
 ### 1. Download pre-trained Resnet models
 
-Download the pre-trained Resnet models and the dataset under any path. Then, modify their file paths in the code.
+Download the pre-trained Resnet models and put them into this folder: './model_pretrained'.
 
 - resnet50-deep-stem:[link](https://drive.google.com/file/d/1OktRGqZ15dIyB2YTySLfOVtprerHgbef/view?usp=sharing)
 
-- resnet50:[link](https://drive.google.com/file/d/1fUAuRfewRpaS5mFX_IQqrE2syEn9PXrv/view?usp=sharing)
-
-- resnet34:[link](https://drive.google.com/file/d/18Erx_ISMt1XMjJlgl4SQsr-iMvcN-7bZ/view?usp=sharing)
-
 - resnet18-deep-stem:[link](https://drive.google.com/file/d/1q1VBV37acIte0GynoS054BWfwwdx1NiZ/view?usp=sharing)
-
-- resnet18:[link](https://drive.google.com/file/d/1LCybGjJ_d-nALvciBBkZil_XfO-7ptAE/view?usp=sharing)
 
 ### 2. Prepare data
 
@@ -43,9 +35,9 @@ We trained our model on one NVIDIA GeForce GTX 3090 with the CUDA 11.1 and CUDNN
 
 ### 4. Test our trained model 
 
-- Download the trained model:[link](https://drive.google.com/file/d/1HXqO9r_wmfIHzg0l0q8V5EC1cVyl-HCu/view?usp=sharing). This trained model reached 82.30% DSC and 21.10 mm HD on the Synapse dataset, without using deep supervision and sophisticated data augmentation methods. 
+- Download the trained model:[link](https://drive.google.com/file/d/1vGLHOW-_ref28PC0LXSyMuW-J6QJRPLB/view?usp=sharing). On the valuation set, this trained model reaches 78.2% and 77.9% with input size 1024x2048 and 1024x1024, respectively. Its pruned version reaches 77.9% and 77.7%, respectively.
 
-- Put 'epoch_149.pth' into this file: 'Results\model_Trained\My_MultiTrans_V0_Synapse224\Model\My_MultiTrans_V0_pretrain_resnet50_Deep_V0_epo150_bs24_224_s1294'. Run the following order:
+- Put 'MFARANet_resnet_18_deep_stem_cityscapes_2GPU_train_lr_005_batch_14_200_200.pth' into this folder: './save/model/our_model_train_val'. Run the following order:
 
 ```bash
 cd Project_MultiTrans_V0
