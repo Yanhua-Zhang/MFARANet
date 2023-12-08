@@ -17,7 +17,7 @@ Download the pre-trained Resnet models and put them into this folder: './model_p
 
 - resnet50-deep-stem:[link](https://drive.google.com/file/d/1OktRGqZ15dIyB2YTySLfOVtprerHgbef/view?usp=sharing)
 
-### 2. Prepare data
+### 2. Prepare data 
 
 - Download the [Cityscapes](https://www.cityscapes-dataset.com/) dataset and put it into this folder: './Dataset'.
 
