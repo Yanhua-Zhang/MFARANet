@@ -109,12 +109,31 @@ python train_val_inference_general.py --yaml_Name='MFARANet_train_valuation_Basi
 
 ### 6. Measure FLOPs and FPS 
 
-We adopt the code from [HRNet](https://github.com/HRNet/HRNet-Semantic-Segmentation/tree/HRNet-OCR?v=2) to calculate FLOPs. When testing FPS, please make sure no other processes are hogging the GPU or CPU.
+We adopt the code from [HRNet](https://github.com/HRNet/HRNet-Semantic-Segmentation/tree/HRNet-OCR?v=2) to calculate FLOPs. When testing FPS, please make sure no other processes are hogging the GPU and CPU.
 
 ```bash
 CUDA_VISIBLE_DEVICES=0 python model_summary_GFLOPs_params_FPS.py 
 ```
 
+### 7. Links to the code used to reproduce the methods in Table XI
+
+ENet: [unofficial](https://github.com/davidtvs/PyTorch-ENet), ESPNet: [official](https://github.com/sacmehta/ESPNet), ContextNet: [unofficial](https://github.com/zh320/realtime-semantic-segmentation-pytorch)
+
+Fast-SCNN: [unofficial](https://github.com/Tramac/Fast-SCNN-pytorch), DFANetB: [official](https://github.com/sacmehta/ESPNet), EDANet: [unofficial](https://github.com/zh320/realtime-semantic-segmentation-pytorch)
+
+CGNet M3N21: [unofficial](https://github.com/davidtvs/PyTorch-ENet), CIFReNet: [official](https://github.com/sacmehta/ESPNet), MiniNet-V2: [unofficial](https://github.com/zh320/realtime-semantic-segmentation-pytorch)
+
+AGLNet: [unofficial](https://github.com/davidtvs/PyTorch-ENet), SGCPNet2: [official](https://github.com/sacmehta/ESPNet), ERFNet: [unofficial](https://github.com/zh320/realtime-semantic-segmentation-pytorch)
+
+ICNet: [unofficial](https://github.com/davidtvs/PyTorch-ENet), SwiftNet-18: [official](https://github.com/sacmehta/ESPNet), SwiftNet-18pyr: [unofficial](https://github.com/zh320/realtime-semantic-segmentation-pytorch)
+
+ShelfNet: [unofficial](https://github.com/davidtvs/PyTorch-ENet), SFNet(DF1): [official](https://github.com/sacmehta/ESPNet), STDC2-Seg75: [unofficial](https://github.com/zh320/realtime-semantic-segmentation-pytorch)
+
+DMA-Net: [unofficial](https://github.com/davidtvs/PyTorch-ENet), DeepLab-V2: [official](https://github.com/sacmehta/ESPNet), RefineNet: [unofficial](https://github.com/zh320/realtime-semantic-segmentation-pytorch)
+
+PSPNet: [unofficial](https://github.com/davidtvs/PyTorch-ENet), BiSeNet-V1: [official](https://github.com/sacmehta/ESPNet), DFN: [unofficial](https://github.com/zh320/realtime-semantic-segmentation-pytorch)
+
+HRNet-V2: [unofficial](https://github.com/davidtvs/PyTorch-ENet)
 
 ## Reference
 * [TransUNet](https://github.com/Beckschen/TransUNet)
