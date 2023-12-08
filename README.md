@@ -9,7 +9,7 @@ This repository includes the official project of our paper submitted to IEEE Tra
 
 - If you have any suggestions for improvement or encounter any issues while using this code, please feel free to contact me: zhangyanhua@mail.nwpu.edu.cn
 
-### 1. Download pre-trained Resnet models
+### 1. Download pre-trained Resnet models 
 
 Download the pre-trained Resnet models and put them into this folder: './model_pretrained'.
 
