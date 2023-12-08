@@ -51,14 +51,16 @@ python train_val_inference_general.py --yaml_Name='MFARANet_train_valuation_Basi
 
 - Download the trained model:[link](https://drive.google.com/file/d/155ygZ50a6EwGqjm6qEnZ1shGQ9J3TKxn/view?usp=sharing). On the Test set, this trained model reaches 77.3% and 77.1% with input size 1024x2048 and 1024x1024, respectively. Its pruned version reaches 77.0% and 76.8%, respectively.
 
-- Put 'MFARANet_resnet_18_deep_stem_cityscapes_2GPU_train_lr_005_batch_14_200_200.pth' into this folder: './save/model/our_model_train_val'. Run the following order:
+- Put 'MFARANet_resnet_18_deep_stem_cityscapes_2GPU_train_lr_005_batch_14_275_274.pth' into this folder: './save/model/our_model_trainval_test'. Run the following order:
 
 ```bash
-cd MFARANet-main
+python train_val_inference_general.py --yaml_Name='MFARANet_train_valuation_Basic_Config_Trainval_Test.yaml' --train_gpu 1 --NAME_model 'MFARANet_resnet_18_deep_stem' --Marker 'Branch_1_2_3_4_Paper_TrainVal_Test' --load_trained_model='./save/model/our_model_trainval_test/MFARANet_resnet_18_deep_stem_cityscapes_2GPU_train_lr_005_batch_14_275_274.pth'
 ```
 
+- Run the following order to transform the predicted segmentation map from trainID to labelID, then follow the instruction in the [official website](https://www.cityscapes-dataset.com/) of the Cityscapes to submit to their test service:
+
 ```bash
-python train_val_inference_general.py --yaml_Name='MFARANet_train_valuation_Basic_Config.yaml' --train_gpu 0 --NAME_model 'MFARANet_resnet_18_deep_stem' --Marker 'Branch_1_2_3_4_Paper_Val' --load_trained_model='./save/model/our_model_train_val/MFARANet_resnet_18_deep_stem_cityscapes_2GPU_train_lr_005_batch_14_200_200.pth'
+CUDA_VISIBLE_DEVICES=0 python Submit_Cityscapes_trainID_2_labelID.py --path_Name='MFARANet_resnet_18_deep_stem_Branch_1_2_3_4_Paper_TrainVal_Test_cityscapes'
 ```
 
 ### 5. Train/Test by yourself
