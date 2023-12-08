@@ -119,7 +119,7 @@ CUDA_VISIBLE_DEVICES=0 python model_summary_GFLOPs_params_FPS.py
 
 ENet: [unofficial](https://github.com/davidtvs/PyTorch-ENet), ESPNet: [official](https://github.com/sacmehta/ESPNet), ContextNet: [unofficial](https://github.com/zh320/realtime-semantic-segmentation-pytorch)
 
-Fast-SCNN: [unofficial](https://github.com/Tramac/Fast-SCNN-pytorch), DFANetB: [official](https://github.com/sacmehta/ESPNet), EDANet: [unofficial](https://github.com/zh320/realtime-semantic-segmentation-pytorch)
+Fast-SCNN: [unofficial](https://github.com/Tramac/Fast-SCNN-pytorch), DFANetB: [unofficial](https://github.com/jandylin/DFANet_PyTorch), EDANet: [unofficial](https://github.com/wpf535236337/pytorch_EDANet)
 
 CGNet M3N21: [unofficial](https://github.com/davidtvs/PyTorch-ENet), CIFReNet: [official](https://github.com/sacmehta/ESPNet), MiniNet-V2: [unofficial](https://github.com/zh320/realtime-semantic-segmentation-pytorch)
 
@@ -127,16 +127,18 @@ AGLNet: [unofficial](https://github.com/davidtvs/PyTorch-ENet), SGCPNet2: [offic
 
 ICNet: [unofficial](https://github.com/davidtvs/PyTorch-ENet), SwiftNet-18: [official](https://github.com/sacmehta/ESPNet), SwiftNet-18pyr: [unofficial](https://github.com/zh320/realtime-semantic-segmentation-pytorch)
 
-ShelfNet: [unofficial](https://github.com/davidtvs/PyTorch-ENet), SFNet(DF1): [official](https://github.com/sacmehta/ESPNet), STDC2-Seg75: [unofficial](https://github.com/zh320/realtime-semantic-segmentation-pytorch)
+ShelfNet: [unofficial](https://github.com/davidtvs/PyTorch-ENet), SFNet(DF1): [official](https://github.com/lxtGH/SFSegNets), STDC2-Seg75: [unofficial](https://github.com/zh320/realtime-semantic-segmentation-pytorch)
 
 DMA-Net: [unofficial](https://github.com/davidtvs/PyTorch-ENet), DeepLab-V2: [official](https://github.com/sacmehta/ESPNet), RefineNet: [unofficial](https://github.com/zh320/realtime-semantic-segmentation-pytorch)
 
-PSPNet: [unofficial](https://github.com/davidtvs/PyTorch-ENet), BiSeNet-V1: [official](https://github.com/sacmehta/ESPNet), DFN: [unofficial](https://github.com/zh320/realtime-semantic-segmentation-pytorch)
+PSPNet: [official](https://github.com/hszhao/semseg), BiSeNet-V1: [official](https://github.com/sacmehta/ESPNet), DFN: [unofficial](https://github.com/zh320/realtime-semantic-segmentation-pytorch)
 
-HRNet-V2: [unofficial](https://github.com/davidtvs/PyTorch-ENet)
+HRNet-V2: [official](https://github.com/HRNet/HRNet-Semantic-Segmentation/tree/HRNet-OCR?v=2)
 
 ## Reference
-* [TransUNet](https://github.com/Beckschen/TransUNet)
+* [PSPNet](https://github.com/hszhao/semseg)
+* [HRNet](https://github.com/HRNet/HRNet-Semantic-Segmentation/tree/HRNet-OCR?v=2)
+* [SFNet](https://github.com/lxtGH/SFSegNets)
 
 ## Citations
 
