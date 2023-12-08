@@ -35,7 +35,7 @@ cityscapes
        └── val
 ```
 
-### 3. Environment
+### 3. Environment 
 
 We trained our model on one NVIDIA GeForce GTX 3090 with the CUDA 11.1 and CUDNN 8.0.
 
