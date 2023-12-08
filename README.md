@@ -45,7 +45,7 @@ We trained our model on one NVIDIA GeForce GTX 3090 with the CUDA 11.1 and CUDNN
 
 - Please refer to 'requirements.txt' for other dependencies.
 
-### 4. Our model trained on the Cityscapes Train set 
+### 4. Our model trained on the Cityscapes Train set  
 
 - Download the trained model:[link](https://drive.google.com/file/d/1vGLHOW-_ref28PC0LXSyMuW-J6QJRPLB/view?usp=sharing). On the Valuation set, this trained model reaches 78.2% and 77.9% with input size 1024x2048 and 1024x1024, respectively. Its pruned version reaches 77.9% and 77.7%, respectively.
 
