@@ -13,9 +13,9 @@ This repository includes the official project of our paper submitted to IEEE Tra
 
 Download the pre-trained Resnet models and put them into this folder: './model_pretrained'.
 
-- resnet50-deep-stem:[link](https://drive.google.com/file/d/1OktRGqZ15dIyB2YTySLfOVtprerHgbef/view?usp=sharing)
-
 - resnet18-deep-stem:[link](https://drive.google.com/file/d/1q1VBV37acIte0GynoS054BWfwwdx1NiZ/view?usp=sharing)
+
+- resnet50-deep-stem:[link](https://drive.google.com/file/d/1OktRGqZ15dIyB2YTySLfOVtprerHgbef/view?usp=sharing)
 
 ### 2. Prepare data
 
@@ -81,29 +81,29 @@ CUDA_VISIBLE_DEVICES=0 python Submit_Cityscapes_trainID_2_labelID.py --path_Name
 cd MFARANet-main
 ```
 
-- Run this script to train on the Train set and inference on the Valuation set.
+#### Train on the Train set and inference on the Valuation set.
 
-```bash
+````bash
 python train_val_inference_general.py --yaml_Name='MFARANet_train_valuation_Basic_Config.yaml' --train_gpu 0 1 --NAME_model 'MFARANetScaleChoice_resnet_18_deep_stem' --Branch_Choose 1 2 3 4 --Marker 'Branch_1_2_3_4_Drop_0.05_Train_epochs_200' --epochs 200 --if_train_val
-```
+````
 
 - We find that adding a small Dropout rate will prompt the performance.
 
-```bash
+````bash
 python train_val_inference_general.py --yaml_Name='MFARANet_train_valuation_Basic_Config.yaml' --train_gpu 0 1 --NAME_model 'MFARANetScaleChoice_resnet_18_deep_stem' --Branch_Choose 1 2 3 4 --Dropout_Rate_CNN 0 0.05 0.05 0.05 0.05 --Marker 'Branch_1_2_3_4_Drop_0.05_Train_epochs_200' --epochs 200 --if_train_val
-```
+````
 
-- Run the following script to train on the Train + Val set and inference on the Test set.
+#### Train on the Train + Val set and inference on the Test set.
 
-```bash
+````bash
 python train_val_inference_general.py --yaml_Name='MFARANet_train_valuation_Basic_Config_Trainval_Test.yaml' --train_gpu 0 1 --NAME_model 'MFARANetScaleChoice_resnet_18_deep_stem' --Branch_Choose 1 2 3 4 --Marker 'Branch_1_2_3_4_Drop_0.05_TrainVal_epochs_200' --epochs 200 --if_train_val
-```
+````
 
 - Adding a small Dropout rate.
 
-```bash
+````bash
 python train_val_inference_general.py --yaml_Name='MFARANet_train_valuation_Basic_Config_Trainval_Test.yaml' --train_gpu 0 1 --NAME_model 'MFARANetScaleChoice_resnet_18_deep_stem' --Branch_Choose 1 2 3 4 --Dropout_Rate_CNN 0 0.05 0.05 0.05 0.05 --Marker 'Branch_1_2_3_4_Drop_0.05_TrainVal_epochs_200' --epochs 200 --if_train_val
-```
+````
 
 
 ## Reference
