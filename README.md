@@ -22,7 +22,8 @@ Download the pre-trained Resnet models and put them into this folder: './model_p
 - Download the [Cityscapes](https://www.cityscapes-dataset.com/) datasets and put it into this folder: './Dataset'.
 
 - Your directory tree should be look like this:
-````bash
+
+```bash
 cityscapes
    ├── gtFine
    │   ├── test
