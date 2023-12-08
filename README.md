@@ -33,18 +33,32 @@ We trained our model on one NVIDIA GeForce GTX 3090 with the CUDA 11.1 and CUDNN
 
 - Please refer to 'requirements.txt' for other dependencies.
 
-### 4. Test our trained model 
+### 4. Evaluate our model trained on the Cityscapes Train set 
 
-- Download the trained model:[link](https://drive.google.com/file/d/1vGLHOW-_ref28PC0LXSyMuW-J6QJRPLB/view?usp=sharing). On the valuation set, this trained model reaches 78.2% and 77.9% with input size 1024x2048 and 1024x1024, respectively. Its pruned version reaches 77.9% and 77.7%, respectively.
+- Download the trained model:[link](https://drive.google.com/file/d/1vGLHOW-_ref28PC0LXSyMuW-J6QJRPLB/view?usp=sharing). On the Valuation set, this trained model reaches 78.2% and 77.9% with input size 1024x2048 and 1024x1024, respectively. Its pruned version reaches 77.9% and 77.7%, respectively.
 
 - Put 'MFARANet_resnet_18_deep_stem_cityscapes_2GPU_train_lr_005_batch_14_200_200.pth' into this folder: './save/model/our_model_train_val'. Run the following order:
 
 ```bash
-cd Project_MultiTrans_V0
+cd MFARANet-main
 ```
 
 ```bash
-CUDA_VISIBLE_DEVICES=0 python test.py --dataset Synapse --Model_Name My_MultiTrans_V0 --branch_in_channels 128 256 512 512 1024 --branch_out_channels 256 --branch_key_channels 8 16 32 64 128 --branch_choose 1 2 3 4 --seed 1294
+python train_val_inference_general.py --yaml_Name='MFARANet_train_valuation_Basic_Config.yaml' --train_gpu 0 --NAME_model 'MFARANet_resnet_18_deep_stem' --Marker 'Branch_1_2_3_4_Paper_Val' --load_trained_model='./save/model/our_model_train_val/MFARANet_resnet_18_deep_stem_cityscapes_2GPU_train_lr_005_batch_14_200_200.pth'
+```
+
+### 5. Evaluate our model trained on the Cityscapes Train + Valuation set 
+
+- Download the trained model:[link](https://drive.google.com/file/d/155ygZ50a6EwGqjm6qEnZ1shGQ9J3TKxn/view?usp=sharing). On the Test set, this trained model reaches 77.3% and 77.1% with input size 1024x2048 and 1024x1024, respectively. Its pruned version reaches 77.0% and 76.8%, respectively.
+
+- Put 'MFARANet_resnet_18_deep_stem_cityscapes_2GPU_train_lr_005_batch_14_200_200.pth' into this folder: './save/model/our_model_train_val'. Run the following order:
+
+```bash
+cd MFARANet-main
+```
+
+```bash
+python train_val_inference_general.py --yaml_Name='MFARANet_train_valuation_Basic_Config.yaml' --train_gpu 0 --NAME_model 'MFARANet_resnet_18_deep_stem' --Marker 'Branch_1_2_3_4_Paper_Val' --load_trained_model='./save/model/our_model_train_val/MFARANet_resnet_18_deep_stem_cityscapes_2GPU_train_lr_005_batch_14_200_200.pth'
 ```
 
 ### 5. Train/Test by yourself
