@@ -83,6 +83,8 @@ CUDA_VISIBLE_DEVICES=0 python Submit_Cityscapes_trainID_2_labelID.py --path_Name
 
 ### 5. Train/Test by yourself
 
+- We train our model with 14 batch size and 1024x1024 crop size, which needs around 46G Training Memory on two GTX 3090 GPUs. You can halve the batch size to save the training memory, but please also change the learning rate accordingly. 
+
 ```bash
 cd MFARANet-main
 ```
