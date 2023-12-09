@@ -63,7 +63,7 @@ python train_val_inference_general.py --yaml_Name='MFARANet_train_valuation_Basi
 
 #### Trained on the Train + Val set and inference on the Test set.
 
-- Download the trained model:[link](https://drive.google.com/file/d/155ygZ50a6EwGqjm6qEnZ1shGQ9J3TKxn/view?usp=sharing). On the Test set, this trained model reaches 77.3% and 77.1% with input size 1024x2048 and 1024x1024, respectively. Its pruned version reaches 77.0% and 76.8%, respectively.
+- Download the trained model:[link](https://drive.google.com/file/d/155ygZ50a6EwGqjm6qEnZ1shGQ9J3TKxn/view?usp=sharing). On the Test set, this trained model reaches 77.3% ([Anonymous link](https://www.cityscapes-dataset.com/anonymous-results/?id=1534b251deaea61a1fb6fe80442bbdc7a5ae5c6c63726b34df1e50b721021c0f)) and 77.1% ([Anonymous link](https://www.cityscapes-dataset.com/anonymous-results/?id=17e3872b3deed5cb98526669c295b00b13dd2823fcf084f7bf1b07e4666a2466)) with input size 1024x2048 and 1024x1024, respectively. Its pruned version reaches 77.0% ([Anonymous link](https://www.cityscapes-dataset.com/anonymous-results/?id=4724321f30a2aa67adcd0d654f442cbb3442b8e1480192d15f95e6ad756548c6)) and 76.8%, respectively.
 
 - Put 'MFARANet_resnet_18_deep_stem_cityscapes_2GPU_train_lr_005_batch_14_275_274.pth' into this folder: './save/model/our_model_trainval_test'. Run the following script:
 
@@ -77,9 +77,9 @@ python train_val_inference_general.py --yaml_Name='MFARANet_train_valuation_Basi
 CUDA_VISIBLE_DEVICES=0 python Submit_Cityscapes_trainID_2_labelID.py --path_Name='MFARANet_resnet_18_deep_stem_Branch_1_2_3_4_Paper_TrainVal_Test_cityscapes'
 ````
 
-#### Trained on the Train + Val set and inference on the Test set.
+#### Reproduce the MFARANet-Pruned results in Table IX.
 
-- For reproducing the MFARANet-Pruned results in Table IX, a simplest way is to uncomment line 329 in the file './model_MFARANet.py', and rerun the above scripts. We will provide rewrite code of MFARANet-Pruned later.  
+- The simplest way is to uncomment line 329 in the file './model_MFARANet.py', and rerun the above scripts. We will provide rewrite code of MFARANet-Pruned later.  
 
 ### 5. Train/Test by yourself
 
