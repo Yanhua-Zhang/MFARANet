@@ -37,7 +37,7 @@ cityscapes
 
 ### 3. Environment 
 
-We trained our model on one NVIDIA GeForce GTX 3090 with the CUDA 11.1 and CUDNN 8.0.
+We trained our model on two NVIDIA GeForce GTX 3090 with the CUDA 11.1 and CUDNN 8.0.
 
 - Python 3.8.13.
 
@@ -117,23 +117,15 @@ CUDA_VISIBLE_DEVICES=0 python model_summary_GFLOPs_params_FPS.py
 
 ### 7. Links to the code used to reproduce the methods in Table XI
 
-ENet: [unofficial](https://github.com/davidtvs/PyTorch-ENet), ESPNet: [official](https://github.com/sacmehta/ESPNet), ContextNet: [unofficial](https://github.com/zh320/realtime-semantic-segmentation-pytorch)
+ENet: [unofficial](https://github.com/davidtvs/PyTorch-ENet), ESPNet: [official](https://github.com/sacmehta/ESPNet), ContextNet: [unofficial](https://github.com/zh320/realtime-semantic-segmentation-pytorch), Fast-SCNN: [unofficial](https://github.com/Tramac/Fast-SCNN-pytorch), DFANetB: [unofficial](https://github.com/jandylin/DFANet_PyTorch) 
 
-Fast-SCNN: [unofficial](https://github.com/Tramac/Fast-SCNN-pytorch), DFANetB: [unofficial](https://github.com/jandylin/DFANet_PyTorch), EDANet: [unofficial](https://github.com/wpf535236337/pytorch_EDANet)
+EDANet: [unofficial](https://github.com/wpf535236337/pytorch_EDANet), CGNet M3N21: [official](https://github.com/wutianyiRosun/CGNet), CIFReNet: [official](https://github.com/WxTu/CIFReNet), MiniNet-V2: [unofficial](https://github.com/zh320/realtime-semantic-segmentation-pytorch), AGLNet: [unofficial](https://github.com/zh320/realtime-semantic-segmentation-pytorch)
 
-CGNet M3N21: [unofficial](https://github.com/davidtvs/PyTorch-ENet), CIFReNet: [official](https://github.com/sacmehta/ESPNet), MiniNet-V2: [unofficial](https://github.com/zh320/realtime-semantic-segmentation-pytorch)
+SGCPNet2: [official](https://github.com/zhouyuan888888/sgcpnet), ERFNet: [official](https://github.com/Eromera/erfnet_pytorch), ICNet: [unofficial](https://github.com/liminn/ICNet-pytorch/tree/master), SwiftNet-18: [official](https://github.com/orsic/swiftnet), ShelfNet: [official](https://github.com/juntang-zhuang/ShelfNet)
 
-AGLNet: [unofficial](https://github.com/davidtvs/PyTorch-ENet), SGCPNet2: [official](https://github.com/sacmehta/ESPNet), ERFNet: [unofficial](https://github.com/zh320/realtime-semantic-segmentation-pytorch)
+SFNet(DF1): [official](https://github.com/lxtGH/SFSegNets), STDC2-Seg75: [official](https://github.com/MichaelFan01/STDC-Seg), DMA-Net: [unofficial](https://github.com/haritsahm/pytorch-DMANet), DeepLab-V2: [unofficial](https://github.com/isht7/pytorch-deeplab-resnet), RefineNet: [unofficial](https://github.com/DrSleep/refinenet-pytorch)
 
-ICNet: [unofficial](https://github.com/davidtvs/PyTorch-ENet), SwiftNet-18: [official](https://github.com/sacmehta/ESPNet), SwiftNet-18pyr: [unofficial](https://github.com/zh320/realtime-semantic-segmentation-pytorch)
-
-ShelfNet: [unofficial](https://github.com/davidtvs/PyTorch-ENet), SFNet(DF1): [official](https://github.com/lxtGH/SFSegNets), STDC2-Seg75: [unofficial](https://github.com/zh320/realtime-semantic-segmentation-pytorch)
-
-DMA-Net: [unofficial](https://github.com/davidtvs/PyTorch-ENet), DeepLab-V2: [official](https://github.com/sacmehta/ESPNet), RefineNet: [unofficial](https://github.com/zh320/realtime-semantic-segmentation-pytorch)
-
-PSPNet: [official](https://github.com/hszhao/semseg), BiSeNet-V1: [official](https://github.com/sacmehta/ESPNet), DFN: [unofficial](https://github.com/zh320/realtime-semantic-segmentation-pytorch)
-
-HRNet-V2: [official](https://github.com/HRNet/HRNet-Semantic-Segmentation/tree/HRNet-OCR?v=2)
+PSPNet: [official](https://github.com/hszhao/semseg), BiSeNet-V1: [unofficial](https://github.com/CoinCheung/BiSeNet), DFN: [unofficial](https://github.com/lingtengqiu/Deeperlab-pytorch/blob/master/dfn.py), HRNet-V2: [official](https://github.com/HRNet/HRNet-Semantic-Segmentation/tree/HRNet-OCR?v=2)
 
 ## Reference
 * [PSPNet](https://github.com/hszhao/semseg)
