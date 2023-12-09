@@ -77,6 +77,10 @@ python train_val_inference_general.py --yaml_Name='MFARANet_train_valuation_Basi
 CUDA_VISIBLE_DEVICES=0 python Submit_Cityscapes_trainID_2_labelID.py --path_Name='MFARANet_resnet_18_deep_stem_Branch_1_2_3_4_Paper_TrainVal_Test_cityscapes'
 ````
 
+#### Trained on the Train + Val set and inference on the Test set.
+
+- For reproducing the MFARANet-Pruned results in Table IX, a simplest way is to uncomment line 329 in the file './model_MFARANet.py', and rerun the above scripts. We will provide rewrite code of MFARANet-Pruned later.  
+
 ### 5. Train/Test by yourself
 
 ```bash
