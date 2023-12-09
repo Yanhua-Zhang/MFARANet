@@ -79,7 +79,7 @@ CUDA_VISIBLE_DEVICES=0 python Submit_Cityscapes_trainID_2_labelID.py --path_Name
 
 #### Reproduce the MFARANet-Pruned results in Table IX.
 
-- The simplest way is to uncomment line 329 in the file './model_MFARANet.py', and rerun the above scripts. We will provide rewrite code of MFARANet-Pruned later.  
+- The simplest way is to uncomment line 329 in the file './model/model_MFARANet.py', and rerun the above scripts. We will provide rewrite code of MFARANet-Pruned later.  
 
 ### 5. Train/Test by yourself
 
