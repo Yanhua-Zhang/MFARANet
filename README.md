@@ -95,7 +95,7 @@ cd MFARANet-main
 python train_val_inference_general.py --yaml_Name='MFARANet_train_valuation_Basic_Config.yaml' --train_gpu 0 1 --NAME_model 'MFARANetScaleChoice_resnet_18_deep_stem' --Branch_Choose 1 2 3 4 --Marker 'Branch_1_2_3_4_Drop_0.05_Train_epochs_200' --epochs 200 --if_train_val
 ````
 
-- We find that adding a small Dropout rate will prompt the performance.
+- We find that adding a small Dropout rate will prompt the performance:
 
 ````bash
 python train_val_inference_general.py --yaml_Name='MFARANet_train_valuation_Basic_Config.yaml' --train_gpu 0 1 --NAME_model 'MFARANetScaleChoice_resnet_18_deep_stem' --Branch_Choose 1 2 3 4 --Dropout_Rate_CNN 0 0.05 0.05 0.05 0.05 --Marker 'Branch_1_2_3_4_Drop_0.05_Train_epochs_200' --epochs 200 --if_train_val
@@ -107,7 +107,7 @@ python train_val_inference_general.py --yaml_Name='MFARANet_train_valuation_Basi
 python train_val_inference_general.py --yaml_Name='MFARANet_train_valuation_Basic_Config_Trainval_Test.yaml' --train_gpu 0 1 --NAME_model 'MFARANetScaleChoice_resnet_18_deep_stem' --Branch_Choose 1 2 3 4 --Marker 'Branch_1_2_3_4_Drop_0.05_TrainVal_epochs_200' --epochs 200 --if_train_val
 ````
 
-- Adding a small Dropout rate.
+- Or, add a small Dropout rate:
 
 ````bash
 python train_val_inference_general.py --yaml_Name='MFARANet_train_valuation_Basic_Config_Trainval_Test.yaml' --train_gpu 0 1 --NAME_model 'MFARANetScaleChoice_resnet_18_deep_stem' --Branch_Choose 1 2 3 4 --Dropout_Rate_CNN 0 0.05 0.05 0.05 0.05 --Marker 'Branch_1_2_3_4_Drop_0.05_TrainVal_epochs_200' --epochs 200 --if_train_val
