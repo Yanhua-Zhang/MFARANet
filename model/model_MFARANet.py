@@ -326,7 +326,7 @@ class MFARANet(nn.Module):
             j += 1
 
         final_score  = sum(HMSA_stage_scores)
-        final_score = multi_loss_scores[1]
+        # final_score = multi_loss_scores[1]
        
         out = F.interpolate(final_score, x_size[2:], mode='bilinear', align_corners=True)
 
