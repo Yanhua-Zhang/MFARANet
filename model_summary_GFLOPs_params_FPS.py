@@ -1,9 +1,5 @@
 # ------------------------------------------------------------------------------
-# 注意！HRNet 中提供的 get_model_summary 和 from torchsummary import summary 
-# 都无法计算 AdaptiveAvgPool2d 中的 parameters 和 GFLOPs
-# ------------------------------------------------------------------------------
 import os
-os.environ["CUDA_VISIBLE_DEVICES"] = '1'
 import torch
 import torch.nn as nn
 
@@ -35,7 +31,7 @@ def summary_backbone(summary_path, model_name, model):
     logger.info('   ')
 
 # --------------------------------------------------------------------------------------
-# 利用不同方式计算 GFLOPs、params，然后存入 logger 中
+# 计算 GFLOPs、params，然后存入 logger 中
 def GFLOPs_params_counter(model, model_name, height, weight, logger):
 
     logger.info('-----------------------------------------------------------------------')
@@ -47,68 +43,14 @@ def GFLOPs_params_counter(model, model_name, height, weight, logger):
     logger.info('End')
     logger.info('--------------------------------')
 
-    # SFNet 计算方式----------------------------
-    logger.info('开始利用 SFNet 中方式进行计算：')
-    flops_count, params_count = get_model_complexity_info(model, (height, weight), print_per_layer_stat=False, as_strings=True, channel=3)
-    logger.info('FLOPs 为： '+flops_count)
-    logger.info('params 总数为： '+params_count)
-    logger.info('End')
-    logger.info('--------------------------------')
-
-    # # torch 计算方式----------------------------
-    # logger.info('开始利用 torch 中方式进行计算：')
-    # # stat(model, (3, height, weight))
-    # logger.info('End')
-    # logger.info('--------------------------------')
 
 # ------------------------------------------------------------------------------------
 # 检查保存 summary log 的文件夹是否存在，不存在进行生成
 summary_path = './save/summary'
 check_makedirs(summary_path)            
 
-# #-------------------------------------------------------------------------------------------------
-# from model.model_FPN_Bottom_up_Scales_fuse_Bi_linear_up_Speed import FPN_Bottom_up_Scales_fuse
-
-# model_name = 'model_FPN_Bottom_up_Scales_fuse_Bi_l：use dilation、not use PPM'
-# model = FPN_Bottom_up_Scales_fuse(backbone_name='resnet18_deep_stem', classes=19, 
-#                                 use_dilation=True, use_PPM=False, 
-#                                 use_aux_loss=False, 
-#                                 if_use_boundary_loss = False,
-#                                 pretrained=True)
-
-# height, weight = 1024, 1024  # 1024, 1024  1024, 2048
-# GFLOPs_params_counter(model, model_name, height, weight, logger)
-# FPS_counter(model, model_name, height, weight, logger, iteration=100)
-
-# #-------------------------------------------------------------------------------------------------
-# from model.model_FPN_Bottom_up_Scales_fuse_RAM_Concat_Speed import FPN_Bottom_up_Scales_fuse
-
-# model_name = 'model_FPN_Bottom_up_Scales_fuse_RAM_Concat_Speed：use dilation、not use PPM'
-# model = FPN_Bottom_up_Scales_fuse(backbone_name='resnet18_deep_stem', classes=19, 
-#                                 use_dilation=True, use_PPM=False, 
-#                                 use_aux_loss=False, 
-#                                 if_use_boundary_loss = False,
-#                                 pretrained=True)
-
-# height, weight = 1024, 1024  # 1024, 1024  1024, 2048
-# GFLOPs_params_counter(model, model_name, height, weight, logger)
-# FPS_counter(model, model_name, height, weight, logger, iteration=100)
 
 #-------------------------------------------------------------------------------------------------
-# from model.model_FPN_Bottom_up_Scales_fuse_Direct_multi_level_feature_Speed import FPN_Bottom_up_Scales_fuse
-
-# model_name = 'model_FPN_Bottom_up_Scales_fuse_Direct_multi_level_feature_Speed：use dilation、not use PPM'
-# model = FPN_Bottom_up_Scales_fuse(backbone_name='resnet18_deep_stem', classes=19, 
-#                                 use_dilation=True, use_PPM=False, 
-#                                 use_aux_loss=False, 
-#                                 if_use_boundary_loss = False,
-#                                 pretrained=True)
-
-# height, weight = 1024, 1024  # 1024, 1024  1024, 2048
-# GFLOPs_params_counter(model, model_name, height, weight, logger)
-# FPS_counter(model, model_name, height, weight, logger, iteration=100)
-
-# #-------------------------------------------------------------------------------------------------
 # from model.model_MFARANet_Scale_Choice import MFARANet_Scale_Choice
 
 # ASFM_stage_choose =[1,2,3,4]
@@ -138,67 +80,6 @@ check_makedirs(summary_path)
 # GFLOPs_params_counter(model, model_name, height, weight, logger)
 # FPS_counter(model, model_name, height, weight, logger, iteration=100)
 
-
-# #-------------------------------------------------------------------------------------------------
-# from model.model_MFARANet_Scale_Choice_STDC import MFARANet_Scale_Choice_STDC
-
-# ASFM_stage_choose =[1,2,3,4]
-
-# model_name = 'MFARANet_Scale_Choice_STDC: STDC_V2' + str(ASFM_stage_choose)
-# model = MFARANet_Scale_Choice_STDC(backbone_name='STDC_V1', classes=19, 
-#                                 use_dilation=False, use_PPM=False, 
-#                                 use_aux_loss=False, 
-#                                 if_use_boundary_loss = False,
-#                                 ASFM_stage_choose = ASFM_stage_choose,
-#                                 pretrained=True)
-
-# summary_backbone(summary_path, model_name, model)
-
-# height, weight = 1024, 1024  # 1024, 1024  1024, 2048
-# file_name_log = summary_path+'/'+"model_GFLOPs_params_FPS.log"  # logger 的文件名
-# logger = build_logger('summary_FPS', file_name_log)
-
-# GFLOPs_params_counter(model, model_name, height, weight, logger)
-# FPS_counter(model, model_name, height, weight, logger, iteration=100)
-
-
-# #-------------------------------------------------------------------------------------------------
-# from model.backbone.dfnet import DFNetv1, DFNetv2 
-
-# model_name = 'DFNetv12' 
-# model = DFNetv2(pretrained = True, norm_layer = nn.BatchNorm2d)
-
-# summary_backbone(summary_path, model_name, model)
-
-# height, weight = 1024, 1024  # 1024, 1024  1024, 2048
-# file_name_log = summary_path+'/'+"model_GFLOPs_params_FPS.log"  # logger 的文件名
-# logger = build_logger('summary_FPS', file_name_log)
-
-# GFLOPs_params_counter(model, model_name, height, weight, logger)
-# FPS_counter(model, model_name, height, weight, logger, iteration=100)
-
-
-# #-------------------------------------------------------------------------------------------------
-# from model.model_MFARANet_Scale_Choice_DFNet import MFARANet_Scale_Choice_DFNet
-
-# ASFM_stage_choose =[1,2,3,4]
-
-# model_name = 'MFARANet_Scale_Choice_DFNet' + str(ASFM_stage_choose)
-# model = MFARANet_Scale_Choice_DFNet(backbone_name='DFNet_V1', classes=19, 
-#                                 use_dilation=True, use_PPM=False, 
-#                                 use_aux_loss=False, 
-#                                 if_use_boundary_loss = False,
-#                                 ASFM_stage_choose = ASFM_stage_choose,
-#                                 pretrained=True)
-
-# summary_backbone(summary_path, model_name, model)
-
-# height, weight = 1024, 1024  # 1024, 1024  1024, 2048
-# file_name_log = summary_path+'/'+"model_GFLOPs_params_FPS.log"  # logger 的文件名
-# logger = build_logger('summary_FPS', file_name_log)
-
-# GFLOPs_params_counter(model, model_name, height, weight, logger)
-# FPS_counter(model, model_name, height, weight, logger, iteration=100)
 
 #-------------------------------------------------------------------------------------------------
 from model.model_MFARANet_Speed import MFARANet
