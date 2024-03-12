@@ -24,15 +24,16 @@ Download the pre-trained Resnet models and put them into this folder: './model_p
 - Your directory tree should be like this:
 
 ```bash
-cityscapes
-   ├── gtFine
-   │   ├── test
-   │   ├── train
-   │   └── val
-   └── leftImg8bit
-       ├── test
-       ├── train
-       └── val
+Dataset
+  ├──cityscapes
+     ├── gtFine
+     │   ├── test
+     │   ├── train
+     │   └── val
+     └── leftImg8bit
+         ├── test
+         ├── train
+         └── val
 ```
 
 ### 3. Environment 
