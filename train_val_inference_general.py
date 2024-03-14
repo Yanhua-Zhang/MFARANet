@@ -199,11 +199,16 @@ def main_worker(gpu, ngpus_per_node, cfgg):
     std = [item * value_scale for item in std]
 
     train_transform = transform.Compose([
+
+        # add resize
+        transform.Resize([cfg['train_h'], cfg['train_w']]),
+
         # 随机尺度变换
         transform.RandScale([cfg['scale_min'], cfg['scale_max']]),
 
         # 随机旋转
         transform.RandRotate([cfg['rotate_min'], cfg['rotate_max']], padding=mean, ignore_label=cfg['ignore_label']),
+
         # 以概率 p 对图像进行随机高斯滤波：仅用于 VOC 数据集
         # transform.RandomGaussianBlur(),   
 
@@ -212,14 +217,20 @@ def main_worker(gpu, ngpus_per_node, cfgg):
 
         # 利用 mean 对图像进行边界填充，用 ignore_label 对 label 进行边界填充
         transform.Crop([cfg['train_h'], cfg['train_w']], crop_type='rand', padding=mean, ignore_label=cfg['ignore_label']),
+
         # np.ndarray 转 tensor
         transform.ToTensor(),
         # 标准化
         transform.Normalize(mean=mean, std=std)])
 
     val_transform = transform.Compose([
+
+        # add resize
+        transform.Resize([cfg['train_h'], cfg['train_w']]),
+
         # 利用 mean 对图像进行边界填充，用 ignore_label 对 label 进行边界填充
         transform.Crop([cfg['train_h'], cfg['train_w']], crop_type='center', padding=mean, ignore_label=cfg['ignore_label']),
+
         # np.ndarray 转 tensor
         transform.ToTensor(),
         # 标准化
