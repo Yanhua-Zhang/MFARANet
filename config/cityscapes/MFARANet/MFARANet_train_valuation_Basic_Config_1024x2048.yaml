@@ -1,0 +1,128 @@
+# 日志文件、保存模型的名字进行修改
+NAME_model: 'MFARANet_resnet_18_deep_stem'
+NAME_dataset: 'cityscapes'
+logger_name_trainval: 'trainval'                   # 构建 logger 时，不同的 logger-name
+logger_name_error_analysis: 'error_analysis'
+
+if_train_val: True                 # 是否进行模型的训练+val
+if_train: True                     # 是否进行 train
+if_val: True                      # 是否在 train 的同时 val
+
+if_inference: True                 # 是否进行 inference
+if_MS_inference: True              # 是否进行 MS inference
+if_single_inference: True          # 是否 single inference
+if_demo: False
+
+# 控制 dataset_loader 中各类 mask 的计算 
+
+if_get_binary_special_categary_mask: False
+special_categary: 3
+
+# 读取、加载
+max_num: 30000000000000                    # 控制读取的数据集数量!!!  100000000000000
+seed_value: 0                         # 设置 seed
+shuffle: False                    # dataloader 是否需要洗牌
+
+# 保存点储存 和 训练好的模型加载
+load_model_path:                 # 进行权重初始化的地址
+if_load_checkpoint: True
+load_checkpoint:             # 断点模型加载，需要继续训练
+load_trained_model:          # 训练好的模型加载，不需要继续训练
+save_freq: 2
+save_model_filename: '_lr_005_batch_14_200_'   # 保存模型名字的后缀
+
+CRITERION:
+  aux_weight: 0.4
+  se_weight: 0.2
+  loss_name: 'JointEdgeSegLossOHEM'    # 'CrossEntropyLoss'、'JointEdgeSegLoss'、'JointEdgeSegLossOHEM'
+  if_use_boundary_loss: True
+  if_get_binary_boundary_mask: True    # 用于计算 'JointEdgeSegLoss'、'JointEdgeSegLossOHEM' 的 mask。不用的时候置为 False
+
+MODEL:
+  # 模型加载
+  backbone_name: 'resnet18_deep_stem'
+  num_classes: 19  
+  # 优化器设置、loss设置
+  base_lr: 0.005   # 0.005
+  momentum: 0.9
+  weight_decay: 0.0005 
+  power: 0.9
+
+  use_dilation: True   #  
+  use_PPM: False
+  
+  use_aux_loss: False
+  use_Multi_loss: True
+
+  Branch_Choose: [1,2,3,4]
+
+  Dropout_Rate_CNN: [0.0, 0.0, 0.0, 0.0, 0.0]
+  
+# 进行 Multi-processing Distributed Data Parallel Training 的设置
+Distributed:
+  # 多GPU、DataLoader 线程
+  num_workers: 4                   # 为 GPU 个数的 2 倍!!!
+  # GPU_number: '0,1'
+  train_gpu: [1,2]                  # 使用的 GPU 序号
+  dist_url: tcp://127.0.0.1:6789
+  dist_backend: 'nccl'
+  multiprocessing_distributed: True
+  world_size: 1
+  rank: 0
+  sync_bn: True         # 多线程时候要使用，但多GPU时候需要使用吗？？？
+
+TRAIN:
+  # 训练、批次设置
+  batch_size: 14                 # 16
+  start_epoch: 0
+  epochs: 200                      # 训练批次  200
+  # 数据集读取
+  data_root: './Dataset/cityscapes'
+  train_list_root: './data/cityscapes_Splits/fine_train.txt'
+  # 训练数据集 data_augment、trainsform
+  scale_min: 0.5    # 0.75
+  scale_max: 2.0
+  rotate_min: -10
+  rotate_max: 10
+  train_h: 1024             # 1024
+  train_w: 2048             # 2048
+  ignore_label: 255
+  value_scale: 255    
+  mean: [0.485, 0.456, 0.406]   # 均值
+  std: [0.229, 0.224, 0.225]    # 方差
+  
+VAL:
+  # val 数据集批次、读取
+  batch_size_val: 8
+  val_freq: 1      # 在 train 时，每隔 val_epoch 个批次进行 val
+  val_list_root: './data/cityscapes_Splits/fine_val.txt'
+
+TEST:
+  if_pretrain: False
+  split: 'train'
+  test_list_root: './data/cityscapes_Splits/fine_val.txt'
+  if_direct_get_acc: False
+  if_save_image_result: True
+  if_get_acc_from_image_result: True
+  batch_size_test: 1
+  base_size: 2048
+  test_h: 1024
+  test_w: 1024
+  scales: [0.5, 0.75, 1.0, 1.25, 1.5, 1.75]  # evaluation scales, ms as [0.75, 1.0, 1.25, 1.5, 1.75, 2.0]、[1.0]、[0.5, 0.75, 1.0, 1.25, 1.5, 1.75]
+
+DEMO:
+  demo_base_size: 200
+  demo_h: 100
+  demo_w: 100
+  demo_scales: [0.75, 1.0, 1.25, 1.5, 1.75, 2.0]  # evaluation scales, ms as [0.75, 1.0, 1.25, 1.5, 1.75, 2.0]、[1.0]
+  demo_image_path: '/home/zhangyanhua/Code_python/Dataset/Demo/P007S43G10B10H10UC022000LC021000A000R0_08241716_099_bbx.jpg'
+
+DATESET_ANALYSIS:
+  # NAME_dataset: 'PASCAL_context_60'
+  PATH_dataset: '/home/zhangyanhua/Code_python/Dataset/PASCAL_Context/PASCALContexts_60'   # 这里注意是 GT gray 图片所在的文件夹绝对路径
+  print_freq: 500
+  # use_gpu: [0]
+  BINS: 19
+
+ERROR ANALYSIS:
+  if_error_analysis: False
