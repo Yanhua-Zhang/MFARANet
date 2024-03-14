@@ -83,8 +83,13 @@ def main_inference(cfg):
 
     # 使用 HRNet 进行测试时，需要进行 toTensor 和标准化操作
     test_transform = transform.Compose([
+
+        # add resize
+        transform.Resize([cfg['train_h'], cfg['train_w']]),
+
         # np.ndarray 转 tensor
         transform.ToTensor(),
+        
         # 标准化
         transform.Normalize(mean=mean, std=std)])    
 
