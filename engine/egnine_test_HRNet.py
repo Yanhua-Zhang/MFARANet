@@ -61,6 +61,17 @@ def test_HRNet(cfg, test_loader, data_list, model, test_engine , classes, mean, 
             # check_makedirs(color_folder)
 
             gray = np.uint8(prediction.cpu())
+
+            # print(gray.shape)
+
+            if cfg['NAME_dataset'] == 'cityscapes':
+                
+                if gray.shape != (1024, 2048):
+                    #  cv2 needs a (w, h) input: (2048, 1024)
+                    gray = cv2.resize(gray, (2048, 1024), interpolation=cv2.INTER_NEAREST)   
+
+            # print(gray.shape)
+
             color = colorize(gray, colors)   # label 到可视化 annotion 的转换。利用 colorize 函数转换为 PIL Image 格式
             image_path, _ = data_list[i]
             image_name = image_path.split('/')[-1].split('.')[0]
