@@ -85,7 +85,7 @@ TRAIN:
   rotate_min: -10
   rotate_max: 10
   train_h: 1024             # 1024、713
-  train_w: 1024             # 1024、713
+  train_w: 2048             # 1024、713
   ignore_label: 255
   value_scale: 255    
   mean: [0.485, 0.456, 0.406]   # 均值
