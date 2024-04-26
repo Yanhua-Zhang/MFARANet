@@ -1,5 +1,5 @@
 # MFARANet
-This repository includes the official project of our paper submitted to IEEE Transactions on Image Processing. Title: "Multi-Level Feature Aggregation and Recursive Alignment Network for Real-Time Semantic Segmentation".
+This repository includes the official project of our paper. Title: "Multi-Level Feature Aggregation and Recursive Alignment Network for Real-Time Semantic Segmentation".
 
 ## Usage
 
